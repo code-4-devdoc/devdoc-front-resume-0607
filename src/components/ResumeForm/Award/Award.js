@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Awards = () => {
+const Award = () => {
     return <div>Awards content here.</div>;
 };
 
-export default Awards;
+export default Award;

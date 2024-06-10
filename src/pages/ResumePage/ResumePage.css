@@ -44,8 +44,9 @@
 }
 
 .section-content {
-    padding: 20px;
-    background-color: white;
+    padding-left: 100px;
+    padding-top: 30px;
+    padding-right: 100px;
 }
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Activities = () => {
+const Activity = () => {
     return <div>Activities content here.</div>;
 };
 
-export default Activities;
+export default Activity;
