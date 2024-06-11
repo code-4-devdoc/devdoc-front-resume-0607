@@ -9,7 +9,7 @@
 .form-container {
     min-height: 1000px;
     background-color: white;
-    min-width: 1250px;
+    min-width: 1080px;
     margin-right: 20px;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .section-content {
-    padding-left: 100px;
+    padding-left: 165px;
     padding-top: 30px;
     padding-right: 100px;
 }

@@ -49,7 +49,7 @@ const Button = styled.button`
 const ResumeTitle = styled.input`
     display: flex;
     align-items: center;
-    width: 1000px;
+    width: 700px;
     height: 30px;
     font-size: 20px;
     padding: 15px;

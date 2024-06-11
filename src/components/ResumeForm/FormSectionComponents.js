@@ -1,5 +1,4 @@
 import AboutMe from './AboutMe/AboutMe';
-import Skill from './Skill/Skill';
 import Education from './Education/Education';
 import Career from './Career/Career';
 import Project from './Project/Project';
@@ -8,6 +7,7 @@ import Language from "./Language/Language";
 import Training from "./Training/Training";
 import Activity from "./Activity/Activity";
 import Award from "./Award/Award";
+import Skill from "./Skill/Skill";
 
 const formSectionComponents = {
     'About Me': AboutMe,

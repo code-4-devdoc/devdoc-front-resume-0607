@@ -6,6 +6,7 @@ const Container = styled.div`
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 5px;
+    width: 700px;
 `
 const SectionTitle = styled.div`
     color: black;
