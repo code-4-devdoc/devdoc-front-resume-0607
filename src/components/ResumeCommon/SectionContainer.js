@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Container = styled.div`
     border: 2px solid rgba(239, 245, 255, 1);  /* 하늘색 테두리 */
     padding: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     border-radius: 5px;
     width: 700px;
 `

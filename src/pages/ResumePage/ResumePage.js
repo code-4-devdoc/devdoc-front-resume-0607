@@ -96,7 +96,7 @@ const ResumePage = () => {
                         <Button>미리보기</Button>
                         <Button>저장</Button>
                     </div>
-                    <div style={{display:'flex', justifyContent:'center', marginTop: 25}}>
+                    <div style={{display:'flex', justifyContent:'center', marginTop: 30, marginBottom:10}}>
                         <ResumeTitle type="text" vaue={resumeTitle} onChange={handleTitleChange} placeholder="이력서 제목 (저장용)"/>
                     </div>
                     <FormContent activeSections={activeSections}/>

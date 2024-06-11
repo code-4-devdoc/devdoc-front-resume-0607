@@ -1,7 +1,12 @@
 import React from 'react';
+import SectionContainer from "../../ResumeCommon/SectionContainer";
 
 const Education = () => {
-    return <div>Education content here.</div>;
+    return (
+        <SectionContainer title="Education">
+
+        </SectionContainer>
+    );
 };
 
 export default Education;

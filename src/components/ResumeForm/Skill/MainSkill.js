@@ -29,7 +29,7 @@ const Button = styled.button`
 `;
 
 
-const MainSkill = () => {
+const MainSkill = ({onRemove}) => {
     const [isActive, setIsActive] = useState(false);
     const [value, setValue] = useState("");
 
@@ -42,7 +42,10 @@ const MainSkill = () => {
 
     return (
         <Border>
-            <div style={{height: 15}}></div>
+            <div style={{display:"flex", justifyContent:"flex-end"}}>
+                <button style={{cursor:"pointer", borderRadius: "0px 8px 0px 3px", width: 30, height:20, backgroundColor:"rgba(18, 73, 156, 50%)", color: "white", border:"none"}} onClick={onRemove}>-</button>
+            </div>
+            <div style={{height: 5}}></div>
             <span style={{fontWeight: 600, marginLeft: 40}}>주요 기술</span>
             <div style={{display: "flex", alignItems: 'center', gap: 15, paddingLeft: 15, paddingRight: 15, marginBottom: 5}}>
                 <SkillSearchComponent singleSelection={true}></SkillSearchComponent>

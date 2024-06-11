@@ -9,9 +9,14 @@ const Skill = () => {
 
     const addMainSkill = () => {
         if (mainSkills.length < 3) { // 최대 3개까지만 추가 가능
-            setMainSkills(prev => [...prev, <MainSkill key={prev.length} />]);
+            setMainSkills(prev => [...prev, <MainSkill key={prev.length} onRemove={() => removeMainSkill(prev.length)} />]);
         }
     }
+
+    const removeMainSkill = (index) => {
+        setMainSkills(prev => prev.filter((_, idx) => idx !== index));
+        // idx !== index일 경우에만 mainSkills 배열에 추가 (즉, 현재 인덱스 요소만 제외하고 생성 되는 배열)
+    };
 
     return (
         <SectionContainer title="Skill">
