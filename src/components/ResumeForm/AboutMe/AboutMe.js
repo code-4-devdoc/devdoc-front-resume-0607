@@ -87,7 +87,8 @@ const AboutMe = () => {
     // 입력 검증
     const phoneInput = useInputValidation("", /^\d{3}-\d{4}-\d{4}$/);
     const emailInput = useInputValidation("", /^[a-zA-Z0-9.]+@[a-z]+\.[a-z]+$/);
-    const birthdayInput = useInputValidation("", /^\d{4}-\d{2}-\d{2}$/);
+    //const birthdayInput = useInputValidation("", /^\d{4}-\d{2}-\d{2}$/);
+    const birthdayInput = useInputValidation("", /^\d{4}\.\d{2}\.\d{2}$/);
     const githubInput = useInputValidation("", /^https:\/\/github\.com\/([a-zA-Z0-9_-]+\/?[a-zA-Z0-9_-]*\/?)*$/);
     const blogInput = useInputValidation("", /^(https?:\/\/)?([\da-z\\.-]+)\.([a-z\\.]{2,6})([\\/\w \\.-]*)*\/?$/);
     const introInput = useInputValidation("", /^[\s\S]*$/);
@@ -123,7 +124,7 @@ const AboutMe = () => {
 
                     <FieldWithToggleButton
                         icon={birthdayIcon}
-                        placeholder="생년월일 (YYYY-MM-DD)"
+                        placeholder="생년월일 (YYYY.MM.DD)"
                         isActive={isActive.birthday}
                         inputProps={birthdayInput}
                         toggleActive={toggleActive}
