@@ -1,7 +1,7 @@
-import MenuListComposition from "../../ResumeCommon/MenuListComposition";
 import React, {useState} from "react";
 import styled from "styled-components";
-import UseRadioGroup from "../../ResumeCommon/UseRadioGroup";
+import CheckboxLabels from "../../ResumeCommon/CheckboxLabels";
+import SkillSearchComponent from "../SearchSkills/SkillSearchComponent";
 
 const Border = styled.div`
     border-style: solid;
@@ -21,17 +21,15 @@ const Input = styled.input`
     width: 150px;
 `;
 
-const EducationRecord = ({onRemove}) => {
-    const [selectedRadio, setSelectedRadio] = useState('first'); // 기본값 설정
-    const menuItems1 = ["고등학교", "대학교 (2,3년)", "대학교 (4년)", "대학원 (석사)", "대학원 (박사)"];
+const CareerRecord = ({onRemove}) => {
 
-    const radioOptions = [
-        { value: 'first', label: '재학' },
-        { value: 'second', label: '휴학' },
-        { value: 'third', label: '중퇴' }
-    ];
-    const handleRadioChange = (event) => {
-        setSelectedRadio(event.target.value);
+    const checkboxOption = "재직"
+    const [isChecked, setIsChecked] = useState(false);
+    const handleCheckboxChange = (event) => {
+        setIsChecked(event.target.checked);
+        if (event.target.checked) {
+            setEndDate('');  // 체크박스 선택시 endDate 초기화
+        }
     };
 
     const [startDate, setStartDate] = useState('');
@@ -66,23 +64,30 @@ const EducationRecord = ({onRemove}) => {
                 </button>
             </div>
             <div style={{display: "flex", gap: 5}}>
-                <MenuListComposition menuTitle="학력 구분" menuItems={menuItems1}></MenuListComposition>
-                <Input placeholder="학교명"/>
-                <Input placeholder="전공"/>
+                <Input placeholder="회사명"/>
+                <Input placeholder="부서명/직책"/>
             </div>
-            <div style={{display: "flex", gap: 5, alignItems: "center", marginTop: 5}}>
+            <div style={{display: "flex", height: 35, alignItems: "center", marginTop: 5, gap: 5}}>
                 <Input style={{width: 70}} placeholder="YYYY.MM" value={startDate}
                        onChange={(e) => handleDateChange(setStartDate, e.target.value)}/>
                 <span>-</span>
-                <Input style={{width: 70, marginRight:10}} placeholder="YYYY.MM"
+                <Input style={{width: 70, marginRight: 10}} placeholder="YYYY.MM"
                        value={endDate}
                        onChange={(e) => handleDateChange(setEndDate, e.target.value)}
-                       disabled={selectedRadio === 'first'}/>
-                <UseRadioGroup options={radioOptions} value={selectedRadio} onChange={handleRadioChange}/>
+                       disabled={isChecked}
+                />
+                <CheckboxLabels option={checkboxOption} checked={isChecked}
+                                onChange={handleCheckboxChange}></CheckboxLabels>
             </div>
             {error && <div style={{fontSize: 13, color: 'rgba(202, 5, 5, 1)'}}>{error}</div>}
+            <div style={{height: 5}}></div>
+            <SkillSearchComponent></SkillSearchComponent>
+            <Input as="textarea"
+                   style={{marginTop: 5, width: 500, height: 60, fontFamily: "inherit"}}
+                   placeholder="업무 내용 또는 성과를 입력하세요."
+            />
         </Border>
     );
-};
+}
 
-export default EducationRecord;
+export default CareerRecord;
