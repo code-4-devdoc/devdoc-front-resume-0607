@@ -5,10 +5,10 @@ const sections = [
     { name: 'Skill', detail: '기술 스택', isOpen: false },
     { name: 'Education', detail:'학력', isOpen: false },
     { name: 'Career', detail:'경력', isOpen: false },
-    { name: 'Projects', detail:'프로젝트', isOpen: false },
+    { name: 'Project', detail:'프로젝트', isOpen: false },
     { name: 'Training', detail:'교육 이수', isOpen: false },
-    { name: 'Activities', detail:'대외 활동', isOpen: false },
-    { name: 'Awards', detail:'수상 이력', isOpen: false },
+    { name: 'Activity', detail:'대외 활동', isOpen: false },
+    { name: 'Award', detail:'수상 이력', isOpen: false },
     { name: 'Certificate', detail:'자격증', isOpen: false },
     { name: 'Language', detail:'어학', isOpen: false }
 ];
