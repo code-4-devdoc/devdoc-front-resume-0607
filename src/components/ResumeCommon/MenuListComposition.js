@@ -7,7 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import Stack from '@mui/material/Stack';
 
-const MenuListComposition = ({menuTitle, menuItems}) => {
+const MenuListComposition = ({menuTitle, menuItems, onChange}) => {
     const [open, setOpen] = React.useState(false);
     const anchorRef = React.useRef(null);
     const [selectedTitle, setSelectedTitle] = React.useState(menuTitle);
@@ -36,6 +36,7 @@ const MenuListComposition = ({menuTitle, menuItems}) => {
     const handleMenuItemClick = (event, item) => {
         setSelectedTitle(item); // 선택된 메뉴 아이템으로 타이틀 업데이트
         handleClose(event); // 메뉴 닫기
+        onChange(item); // 선택한 메뉴를 onChange 프롭을 통해 전달
     };
 
     // return focus to the button when we transitioned from !open -> open

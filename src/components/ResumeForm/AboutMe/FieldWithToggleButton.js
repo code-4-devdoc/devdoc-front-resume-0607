@@ -1,3 +1,5 @@
+// AboutMe 기능에서 사용되지 않는 js파일 (혹시 몰라서 삭제하지는 않았습니다)
+
 import React from 'react';
 import styled from 'styled-components';
 

@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
+import {useAward} from "../../../contexts/AwardContext";
 
 const Border = styled.div`
     border-style: solid;
@@ -28,9 +29,8 @@ const Input = styled.input`
     font-size: 15px;
 `;
 
-const AwardRecord = ({onRemove}) => {
+const AwardRecord = ({award, onRemove}) => {
 
-    const [date, setDate] = useState('');
     const [error, setError] = useState('');
 
     const validateDate = (date) => {
@@ -56,6 +56,18 @@ const AwardRecord = ({onRemove}) => {
         }
     };
 
+    const { updateAward } = useAward(); // education context
+    const [awardName, setAwardName] = useState(award.awardName || '');
+    const [awardingBody, setAwardingBody] = useState(award.awardingBody || '');
+    const [description, setDescription] = useState(award.description || '');
+    const [awardYear, setAwardYear] = useState(award.awardYear ||'');
+
+
+    useEffect(() => {
+        updateAward({ id: award.id, awardName, awardYear, awardingBody, description });
+    }, [ award.id, awardName, awardYear, awardingBody, description, updateAward]);
+
+
     return (
         <Border>
             <div style={{display: "flex", justifyContent: "flex-end"}}>
@@ -71,11 +83,13 @@ const AwardRecord = ({onRemove}) => {
                 </button>
             </div>
             <div style={{display: "flex", height: 35, marginTop: 5, gap: 5}}>
-                <Input style={{width: 150}} placeholder="수상명"/>
-                <Input style={{width: 150}} placeholder="수상 기관"/>
+                <Input style={{width: 150}} placeholder="수상명"
+                       value={awardName} onChange={(e) => setAwardName(e.target.value)}/>
+                <Input style={{width: 150}} placeholder="수상 기관"
+                       value={awardingBody} onChange={(e) => setAwardingBody(e.target.value)}/>
                 <div>
-                    <Input style={{width: 70}} placeholder="YYYY.MM" value={date}
-                           onChange={(e) => handleDateChange(setDate, e.target.value)}/>
+                    <Input style={{width: 70}} placeholder="YYYY.MM" value={awardYear}
+                           onChange={(e) => handleDateChange(setAwardYear, e.target.value)}/>
                     {error && <div style={{fontSize: 13, color: 'rgba(202, 5, 5, 1)'}}>{error}</div>}
                 </div>
             </div>
@@ -84,8 +98,8 @@ const AwardRecord = ({onRemove}) => {
                        style={{width: 590, height: 50, fontFamily: "inherit"}}
                        placeholder="부연 설명을 입력하세요."
                        disabled={!isActive}
-                       value={value}
-                       onChange={e => setValue(e.target.value)}
+                       value={description}
+                       onChange={e => setDescription(e.target.value)}
                 />
                 <Button style={{marginTop: 40, marginLeft: 5}} onClick={toggleActive} active={isActive}>
                     {isActive ? '-' : '+'}

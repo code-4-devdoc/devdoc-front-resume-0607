@@ -4,11 +4,20 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
+import {EducationProvider} from "./contexts/EducationContext";
+import {AboutMeProvider} from "./contexts/AboutMeContext";
+import {AwardProvider} from "./contexts/AwardContext";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <App />
+      <EducationProvider>
+          <AboutMeProvider>
+              <AwardProvider>
+                  <App />
+              </AwardProvider>
+          </AboutMeProvider>
+      </EducationProvider>
   </BrowserRouter>
 );
 
